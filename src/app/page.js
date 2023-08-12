@@ -1,3 +1,6 @@
+"use client";
+import { store } from "../redux/store";
+import { Provider } from "react-redux";
 import ToggleThemeButton from "../components/ToggleThemeButton";
 import AddNewTodo from "../components/AddNewTodo";
 import TodoList from "../components/TodoList";
@@ -9,10 +12,15 @@ export default function Home() {
         <ToggleThemeButton />
       </header>
       <main className="py-8">
-        <AddNewTodo />
-        <TodoList />
-        <p className="text-center">Drag and drop to reorder list</p>
-        {/* <div class="fixed bottom-0 right-0 bg-white border-light-vl-gray">
+        <Provider store={store}>
+          <AddNewTodo />
+          <TodoList />
+        </Provider>
+      </main>
+      <p className="text-center mt-5 text-light-d-g-blue">
+        Drag and drop to reorder list
+      </p>
+      {/* <div class="fixed bottom-0 right-0 bg-white border-light-vl-gray">
           <p>
             Challenge by&nbsp;
             <a
@@ -29,7 +37,6 @@ export default function Home() {
             </a>
           </p>
         </div> */}
-      </main>
     </>
   );
 }

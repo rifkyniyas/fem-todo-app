@@ -8,18 +8,27 @@ const todos = [
   { isCompleted: false, text: "Pick up groceries" },
   { isCompleted: false, text: "Complete Todo App on Frontend Mentor" },
 ];
+
 const TodoList = () => {
   return (
-    <div className="my-5 shadow-lg rounded-lg">
-      {todos.map((todo, index) => (
-        <Todo text={todo.text} isCompleted={todo.isCompleted} />
-      ))}
-      <div className="flex justify-between px-6 py-6 text-light-d-g-blue">
-        <p>5 items left</p>
-        <button>Clear Completed</button>
+    <>
+      <div className="my-5 shadow-lg rounded-lg bg-white">
+        {todos.map((todo, index) => (
+          <Todo text={todo.text} isCompleted={todo.isCompleted} />
+        ))}
+        <div className="flex justify-between px-6 py-6 text-light-d-g-blue">
+          <p>5 items left</p>
+          <div className="hidden lg:block">
+            <ToggleTodo />
+          </div>
+
+          <button>Clear Completed</button>
+        </div>
       </div>
-      <ToggleTodo />
-    </div>
+      <div className="lg:hidden">
+        <ToggleTodo />
+      </div>
+    </>
   );
 };
 
