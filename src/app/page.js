@@ -4,8 +4,8 @@ import TodoList from "../components/TodoList";
 export default function Home() {
   return (
     <>
-      <header className="flex justify-between items-center">
-        <h1 className="font-bold text-4xl">Todo</h1>
+      <header className="flex justify-between items-center text-light-vl-gray">
+        <h1 className="font-bold text-4xl tracking-[0.3em] uppercase">Todo</h1>
         <ToggleThemeButton />
       </header>
       <main className="py-8">
