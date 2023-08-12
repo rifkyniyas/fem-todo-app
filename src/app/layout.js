@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Josefin_Sans } from "@next/font/google";
+import { Josefin_Sans } from "next/font/google";
 
 export const metadata = {
   title: "FEM Todo App | Rifky Niyas",
@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${josefinSans.variable} font-sans min-h-screen bg-desktop-light 
         bg-no-repeat bg-left-top bg-light-vl-gray
-        px-8 py-16`}
+        px-8 py-16 `}
       >
         {children}
       </body>
