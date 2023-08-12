@@ -11,21 +11,24 @@ export default function Home() {
       <main className="py-8">
         <AddNewTodo />
         <TodoList />
-        {/* 
-
-
-All
-Active 
-Completed
-
-
-
-Drag and drop to reorder list
-
-<div class="attribution">
-Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-Coded by <a href="#">Your Name Here</a>.
-</div> */}
+        <p className="text-center">Drag and drop to reorder list</p>
+        {/* <div class="fixed bottom-0 right-0 bg-white border-light-vl-gray">
+          <p>
+            Challenge by&nbsp;
+            <a
+              href="https://www.frontendmentor.io?ref=challenge"
+              target="_blank"
+            >
+              Frontend Mentor
+            </a>
+          </p>
+          <p>
+            Coded by&nbsp;
+            <a href="#" target="_blank">
+              Rifky Niyas
+            </a>
+          </p>
+        </div> */}
       </main>
     </>
   );

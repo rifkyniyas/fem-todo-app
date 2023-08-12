@@ -1,4 +1,5 @@
 import Todo from "./Todo";
+import ToggleTodo from "./ToggleTodo";
 const todos = [
   { isCompleted: true, text: "Complete online JavaScript course" },
   { isCompleted: false, text: "Jog around the park 3x" },
@@ -9,7 +10,7 @@ const todos = [
 ];
 const TodoList = () => {
   return (
-    <div className="bg-white my-5 shadow-lg rounded-lg">
+    <div className="my-5 shadow-lg rounded-lg">
       {todos.map((todo, index) => (
         <Todo text={todo.text} isCompleted={todo.isCompleted} />
       ))}
@@ -17,6 +18,7 @@ const TodoList = () => {
         <p>5 items left</p>
         <button>Clear Completed</button>
       </div>
+      <ToggleTodo />
     </div>
   );
 };
