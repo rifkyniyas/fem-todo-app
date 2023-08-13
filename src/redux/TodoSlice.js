@@ -41,6 +41,11 @@ export const todoSlice = createSlice({
     clearCompletedTodos: (state) => {
       state.todoItems = state.todoItems.filter((todo) => !todo.isCompleted);
     },
+    reorderTodos: (state, action) => {
+      const { sourceIndex, destinationIndex } = action.payload;
+      const [movedTodo] = state.todoItems.splice(sourceIndex, 1);
+      state.todoItems.splice(destinationIndex, 0, movedTodo);
+    },
     setFilter: (state, action) => {
       state.filter = action.payload;
     },
@@ -52,6 +57,7 @@ export const {
   toggleCompletion,
   deleteTodo,
   clearCompletedTodos,
+  reorderTodos,
   setFilter,
 } = todoSlice.actions;
 
