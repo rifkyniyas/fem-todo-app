@@ -27,6 +27,8 @@ module.exports = {
         sans: ["var(--font-josefin)", ...fontFamily.sans],
       },
       backgroundImage: {
+        "check-back":
+          "linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)",
         "desktop-light": "url('/images/bg-desktop-light.jpg')",
       },
     },

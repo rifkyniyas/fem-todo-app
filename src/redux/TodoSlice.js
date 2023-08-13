@@ -1,35 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 
 const initialState = [
-  { isCompleted: true, text: "Complete online JavaScript course" },
-  { isCompleted: false, text: "Jog around the park 3x" },
-  { isCompleted: false, text: "10 minutes meditation" },
-  { isCompleted: false, text: "Read for 1 hour" },
-  { isCompleted: false, text: "Pick up groceries" },
-  { isCompleted: false, text: "Complete Todo App on Frontend Mentor" },
+  {
+    id: uuidv4(),
+    text: "Complete online JavaScript course",
+    isCompleted: true,
+  },
+  { id: uuidv4(), text: "Jog around the park 3x", isCompleted: false },
+  { id: uuidv4(), text: "10 minutes meditation", isCompleted: false },
+  { id: uuidv4(), text: "Read for 1 hour", isCompleted: false },
+  { id: uuidv4(), text: "Pick up groceries", isCompleted: false },
+  {
+    id: uuidv4(),
+    text: "Complete Todo App on Frontend Mentor",
+    isCompleted: false,
+  },
 ];
 
 export const todoSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+    addTodo: (state, action) => {
+      state.push(action.payload);
     },
-    decrement: (state) => {
-      state.value -= 1;
+    toggleCompletion: (state, action) => {
+      const index = state.findIndex((todo) => todo.id === action.payload);
+      if (index !== -1) state[index].isCompleted = !state[index].isCompleted;
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    deleteTodo: (state, action) => {
+      return state.filter((todo) => todo.id !== action.payload);
     },
+    clearTodos: () => [],
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = todoSlice.actions;
+export const { addTodo, toggleCompletion, deleteTodo, clearTodos } =
+  todoSlice.actions;
 
 export default todoSlice.reducer;
