@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
-  todos: [
+  todoItems: [
     {
       id: uuidv4(),
       text: "Complete online JavaScript course",
@@ -18,7 +18,6 @@ const initialState = {
       isCompleted: false,
     },
   ],
-
   filter: "all",
 };
 
@@ -27,24 +26,33 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, action) => {
-      state.push(action.payload);
+      state.todoItems.push(action.payload);
     },
     toggleCompletion: (state, action) => {
-      const todo = state.find((todo) => todo.id === action.payload);
+      const todo = state.todoItems.find((todo) => todo.id === action.payload);
       if (todo) todo.isCompleted = !todo.isCompleted;
     },
     deleteTodo: (state, action) => {
-      const index = state.findIndex((todo) => todo.id === action.payload);
-      if (index !== -1) state.splice(index, 1);
+      const index = state.todoItems.findIndex(
+        (todo) => todo.id === action.payload
+      );
+      if (index !== -1) state.todoItems.splice(index, 1);
     },
-    clearTodos: () => [],
+    clearCompletedTodos: (state) => {
+      state.todoItems = state.todoItems.filter((todo) => !todo.isCompleted);
+    },
     setFilter: (state, action) => {
       state.filter = action.payload;
     },
   },
 });
 
-export const { addTodo, toggleCompletion, deleteTodo, clearTodos } =
-  todoSlice.actions;
+export const {
+  addTodo,
+  toggleCompletion,
+  deleteTodo,
+  clearCompletedTodos,
+  setFilter,
+} = todoSlice.actions;
 
 export default todoSlice.reducer;
