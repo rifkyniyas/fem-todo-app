@@ -7,16 +7,16 @@ const Todo = ({ todoID, text, isCompleted }) => {
   return (
     <div className="flex items-center gap-x-5 py-5 px-6 border-b border-b-light-l-g-blue">
       <button
-        className={` ${
-          isCompleted ? "bg-check-back" : ""
-        } relative w-6 h-6 rounded-full border border-light-vl-g-blue`}
+        className={` flex justify-center items-center
+        ${isCompleted ? "bg-check-back" : ""} 
+        relative w-6 h-6 rounded-full border border-light-vl-g-blue`}
         onClick={() => dispatch(toggleCompletion(todoID))}
       >
         <Image
           src={"/images/icon-check.svg"}
           alt="Todo Completed Icon"
-          width={20}
-          height={20}
+          width={12}
+          height={12}
         />
       </button>
       <h2 className="text-light-vd-g-blue text-base">{text}</h2>

@@ -28,7 +28,7 @@ module.exports = {
       },
       backgroundImage: {
         "check-back":
-          "linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)",
+          "linear-gradient(hsl(192, 100%, 67%) , hsl(280, 87%, 65%))",
         "desktop-light": "url('/images/bg-desktop-light.jpg')",
       },
     },
