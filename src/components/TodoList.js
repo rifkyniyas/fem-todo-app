@@ -60,17 +60,6 @@ const TodoList = () => {
             )}
           </Droppable>
         </DragDropContext>
-      </div>
-
-      {/* <div className="my-5 shadow-lg rounded-lg bg-white">
-        {todos.map((todo) => (
-          <Todo
-            key={todo.id}
-            todoID={todo.id}
-            text={todo.text}
-            isCompleted={todo.isCompleted}
-          />
-        ))}
         <div className="flex justify-between px-6 py-6 text-light-d-g-blue">
           <p>{activeTodosCount} items left</p>
           <div className="hidden lg:block">
@@ -84,7 +73,7 @@ const TodoList = () => {
       </div>
       <div className="lg:hidden">
         <ToggleTodo />
-      </div> */}
+      </div>
     </>
   );
 };
