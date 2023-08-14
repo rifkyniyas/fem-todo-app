@@ -60,13 +60,16 @@ const TodoList = () => {
             )}
           </Droppable>
         </DragDropContext>
-        <div className="flex justify-between px-6 py-6 text-light-d-g-blue lg:text-xs">
+        <div className="flex justify-between px-6 lg:px-3 py-6 text-light-d-g-blue lg:text-sm">
           <p>{activeTodosCount} items left</p>
           <div className="hidden lg:block">
             <ToggleTodo />
           </div>
 
-          <button onClick={() => dispatch(clearCompletedTodos())}>
+          <button
+            onClick={() => dispatch(clearCompletedTodos())}
+            className="hover:text-light-vd-g-blue"
+          >
             Clear Completed
           </button>
         </div>
