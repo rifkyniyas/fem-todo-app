@@ -1,14 +1,27 @@
 import Image from "next/image";
+import { useSelector, useDispatch } from "react-redux";
+import { updateTheme } from "../redux/ThemeSlice";
 
 const ToggleThemeButton = () => {
+  const currentTheme = useSelector((state) => state.theme.currentTheme);
+  const dispatch = useDispatch();
+  const toggleTheme = () => {
+    dispatch(updateTheme(currentTheme === "light" ? "dark" : "light"));
+  };
   return (
-    <div className="w-6 h-6 relative">
+    <button onClick={toggleTheme}>
       <Image
-        src={`/images/icon-moon.svg`}
+        src={`
+        ${
+          currentTheme == "light"
+            ? "/images/icon-moon.svg"
+            : "/images/icon-sun.svg"
+        }`}
         alt={`"Toggle Light Theme Icon"`}
-        fill={true}
+        width={24}
+        height={24}
       />
-    </div>
+    </button>
   );
 };
 

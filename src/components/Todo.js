@@ -1,11 +1,17 @@
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { toggleCompletion, deleteTodo } from "../redux/TodoSlice";
+import { useState } from "react";
 
 const Todo = ({ todoID, text, isCompleted }) => {
+  const [isHovered, setIsHovered] = useState(false);
   const dispatch = useDispatch();
   return (
-    <div className="flex items-center gap-x-5 py-5 px-6 border-b border-b-light-l-g-blue">
+    <div
+      className="flex items-center gap-x-5 py-5 px-6 border-b border-b-light-l-g-blue"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <button
         className={` flex justify-center items-center
         ${isCompleted ? "bg-check-back" : ""} 
@@ -21,7 +27,7 @@ const Todo = ({ todoID, text, isCompleted }) => {
       </button>
       <h2 className="text-light-vd-g-blue text-base">{text}</h2>
       <button
-        className="w-4 h-4 relative ml-auto lg:hidden"
+        className={`${!isHovered ? "lg:hidden" : ""} w-4 h-4 relative ml-auto `}
         onClick={() => dispatch(deleteTodo(todoID))}
       >
         <Image src="/images/icon-cross.svg" alt="Clear todo icon" fill={true} />

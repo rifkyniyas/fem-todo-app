@@ -2,6 +2,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -30,6 +31,9 @@ module.exports = {
         "check-back":
           "linear-gradient(hsl(192, 100%, 67%) , hsl(280, 87%, 65%))",
         "desktop-light": "url('/images/bg-desktop-light.jpg')",
+        "desktop-dark": "url('/images/bg-desktop-dark.jpg')",
+        "mobile-light": "url('/images/bg-mobile-light.jpg')",
+        "mobile-dark": "url('/images/bg-mobile-dark.jpg')",
       },
     },
   },

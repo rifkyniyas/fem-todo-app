@@ -6,21 +6,22 @@ import AddNewTodo from "../components/AddNewTodo";
 import TodoList from "../components/TodoList";
 export default function Home() {
   return (
-    <>
-      <header className="flex justify-between items-center text-light-vl-gray">
-        <h1 className="font-bold text-4xl tracking-[0.3em] uppercase">Todo</h1>
-        <ToggleThemeButton />
-      </header>
-      <main className="py-8">
-        <Provider store={store}>
+    <Provider store={store}>
+      <div className="max-w-md mx-auto">
+        <header className="flex justify-between items-center text-light-vl-gray">
+          <h1 className="font-bold text-4xl tracking-[0.3em] uppercase">
+            Todo
+          </h1>
+          <ToggleThemeButton />
+        </header>
+        <main className="py-8">
           <AddNewTodo />
           <TodoList />
-        </Provider>
-      </main>
-      <p className="text-center mt-5 text-light-d-g-blue">
-        Drag and drop to reorder list
-      </p>
-      {/* <div class="fixed bottom-0 right-0 bg-white border-light-vl-gray">
+        </main>
+        <p className="text-center text-light-d-g-blue">
+          Drag and drop to reorder list
+        </p>
+        {/* <div class="fixed bottom-0 right-0 bg-white border-light-vl-gray">
           <p>
             Challenge by&nbsp;
             <a
@@ -37,6 +38,7 @@ export default function Home() {
             </a>
           </p>
         </div> */}
-    </>
+      </div>
+    </Provider>
   );
 }

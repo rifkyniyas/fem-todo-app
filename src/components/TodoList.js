@@ -60,7 +60,7 @@ const TodoList = () => {
             )}
           </Droppable>
         </DragDropContext>
-        <div className="flex justify-between px-6 py-6 text-light-d-g-blue">
+        <div className="flex justify-between px-6 py-6 text-light-d-g-blue lg:text-xs">
           <p>{activeTodosCount} items left</p>
           <div className="hidden lg:block">
             <ToggleTodo />
