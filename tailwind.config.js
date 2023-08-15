@@ -2,9 +2,12 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
+        primary: "hsl(220, 98%, 61%)",
+
         light: {
           "vl-gray": "hsl(0, 0%, 98%)",
           "vl-g-blue": "hsl(236, 33%, 92%)",
@@ -26,7 +29,12 @@ module.exports = {
         sans: ["var(--font-josefin)", ...fontFamily.sans],
       },
       backgroundImage: {
+        "check-back":
+          "linear-gradient(hsl(192, 100%, 67%) , hsl(280, 87%, 65%))",
         "desktop-light": "url('/images/bg-desktop-light.jpg')",
+        "desktop-dark": "url('/images/bg-desktop-dark.jpg')",
+        "mobile-light": "url('/images/bg-mobile-light.jpg')",
+        "mobile-dark": "url('/images/bg-mobile-dark.jpg')",
       },
     },
   },

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .border-check-btn {
+        border-image: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%)) 1;
+    }
+}
