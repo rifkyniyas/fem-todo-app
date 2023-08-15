@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       colors: {
         primary: "hsl(220, 98%, 61%)",
+
         light: {
           "vl-gray": "hsl(0, 0%, 98%)",
           "vl-g-blue": "hsl(236, 33%, 92%)",

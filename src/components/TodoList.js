@@ -33,7 +33,7 @@ const TodoList = () => {
   };
   return (
     <>
-      <div className="my-5 shadow-lg rounded-lg bg-white">
+      <div className="my-5 shadow-lg rounded-lg bg-white dark:bg-dark-vdd-blue">
         <DragDropContext onDragEnd={handleDragEnd}>
           <Droppable droppableId="todo-list">
             {(provided) => (
@@ -60,7 +60,10 @@ const TodoList = () => {
             )}
           </Droppable>
         </DragDropContext>
-        <div className="flex justify-between px-6 lg:px-3 py-6 text-light-d-g-blue lg:text-sm">
+        <div
+          className="flex justify-between px-6 lg:px-3 py-6 lg:text-sm
+        text-light-d-g-blue dark:text-dark-dg-blue"
+        >
           <p>{activeTodosCount} items left</p>
           <div className="hidden lg:block">
             <ToggleTodo />

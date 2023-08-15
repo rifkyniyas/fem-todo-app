@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${josefinSans.variable} font-sans min-h-screen bg-
         bg-mobile-light lg:bg-desktop-light dark:bg-mobile-dark  dark:lg:bg-desktop-dark 
-        bg-no-repeat bg-auto bg-left-top bg-light-vl-gray
+        bg-no-repeat bg-auto bg-left-top bg-light-vl-gray dark:bg-dark-vd-blue
         px-8 py-16 text-lg pb-20`}
       >
         {children}

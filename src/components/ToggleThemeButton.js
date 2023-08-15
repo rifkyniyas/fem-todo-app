@@ -6,7 +6,9 @@ const ToggleThemeButton = () => {
   const currentTheme = useSelector((state) => state.theme.currentTheme);
   const dispatch = useDispatch();
   const toggleTheme = () => {
-    dispatch(updateTheme(currentTheme === "light" ? "dark" : "light"));
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    dispatch(updateTheme(newTheme));
+    document.querySelector("html").classList.toggle("dark");
   };
   return (
     <button onClick={toggleTheme}>

@@ -18,7 +18,7 @@ export default function Home() {
           <AddNewTodo />
           <TodoList />
         </main>
-        <p className="text-center text-light-d-g-blue">
+        <p className="text-center text-light-d-g-blue dark:text-dark-dg-blue">
           Drag and drop to reorder list
         </p>
         <div class="fixed bottom-0 right-0 bg-white py-3 px-5 shadow text-light-d-g-blue rounded-tl-3xl">

@@ -21,7 +21,7 @@ const AddNewTodo = () => {
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
         className="py-5 px-16 rounded block w-full outline-none
-            text-light-vd-g-blue"
+            text-light-vd-g-blue dark:bg-dark-vdd-blue"
       />
       <div
         className="w-6 h-6 rounded-full border border-light-vl-g-blue
