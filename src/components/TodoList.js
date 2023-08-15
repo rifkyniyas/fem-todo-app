@@ -71,7 +71,7 @@ const TodoList = () => {
 
           <button
             onClick={() => dispatch(clearCompletedTodos())}
-            className="hover:text-light-vd-g-blue"
+            className="hover:text-light-vd-g-blue dark:hover:text-dark-lg-blue-hover"
           >
             Clear Completed
           </button>

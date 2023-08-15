@@ -8,7 +8,7 @@ const AddNewTodo = () => {
 
   return (
     <form
-      className="relative"
+      className="relative "
       onSubmit={(e) => {
         e.preventDefault();
         dispatch(addTodo({ id: uuidv4(), text: newTodo, isCompleted: false }));
@@ -21,11 +21,11 @@ const AddNewTodo = () => {
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
         className="py-5 px-16 rounded block w-full outline-none
-            text-light-vd-g-blue dark:bg-dark-vdd-blue"
+            text-light-vd-g-blue dark:bg-dark-vdd-blue dark:text-dark-lg-blue"
       />
       <div
-        className="w-6 h-6 rounded-full border border-light-vl-g-blue
-      absolute top-1/2 -translate-y-1/2 left-6"
+        className="w-6 h-6 rounded-full border absolute top-1/2 -translate-y-1/2 left-6 
+     border-light-vl-g-blue dark:border-dark-dg-blue"
       ></div>
     </form>
   );

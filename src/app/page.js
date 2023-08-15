@@ -18,31 +18,31 @@ export default function Home() {
           <AddNewTodo />
           <TodoList />
         </main>
-        <p className="text-center text-light-d-g-blue dark:text-dark-dg-blue">
+        <p className="text-center text-light-d-g-blue dark:text-dark-vdg-blue">
           Drag and drop to reorder list
         </p>
-        <div class="fixed bottom-0 right-0 bg-white py-3 px-5 shadow text-light-d-g-blue rounded-tl-3xl">
-          <p>
-            Challenge by&nbsp;
-            <a
-              href="https://www.frontendmentor.io?ref=challenge"
-              target="_blank"
-              className="text-light-vd-g-blue hover:underline"
-            >
-              Frontend Mentor
-            </a>
-          </p>
-          <p>
-            Coded by&nbsp;
-            <a
-              href="https://rifkyniyas.vercel.app/"
-              target="_blank"
-              className="text-light-vd-g-blue hover:underline"
-            >
-              Rifky Niyas
-            </a>
-          </p>
-        </div>
+      </div>
+      <div class="bg-white py-3 px-5 shadow text-light-d-g-blue rounded-tl-3xl">
+        <p>
+          Challenge by&nbsp;
+          <a
+            href="https://www.frontendmentor.io?ref=challenge"
+            target="_blank"
+            className="text-light-vd-g-blue hover:underline"
+          >
+            Frontend Mentor
+          </a>
+        </p>
+        <p>
+          Coded by&nbsp;
+          <a
+            href="https://rifkyniyas.vercel.app/"
+            target="_blank"
+            className="text-light-vd-g-blue hover:underline"
+          >
+            Rifky Niyas
+          </a>
+        </p>
       </div>
     </Provider>
   );
