@@ -22,13 +22,17 @@ export default function Home() {
           Drag and drop to reorder list
         </p>
       </div>
-      <div class="bg-white py-3 px-5 shadow text-light-d-g-blue rounded-tl-3xl">
+      <div
+        class="lg:max-w-xs mb-5 lg:fixed lg:bottom-0 lg:right-0 lg:mb-0 ml-auto bg-white dark:bg-dark-vdd-blue mt-10 lg:mt-5
+         text-light-d-g-blue dark:text-dark-dg-blue rounded-lg py-3 px-5 shadow"
+      >
         <p>
           Challenge by&nbsp;
           <a
             href="https://www.frontendmentor.io?ref=challenge"
             target="_blank"
-            className="text-light-vd-g-blue hover:underline"
+            className="text-light-vd-g-blue dark:text-dark-lg-blue
+            hover:underline dark:hover:text-dark-lg-blue-hover"
           >
             Frontend Mentor
           </a>
@@ -38,7 +42,8 @@ export default function Home() {
           <a
             href="https://rifkyniyas.vercel.app/"
             target="_blank"
-            className="text-light-vd-g-blue hover:underline"
+            className="text-light-vd-g-blue dark:text-dark-lg-blue
+            hover:underline dark:hover:text-dark-lg-blue-hover"
           >
             Rifky Niyas
           </a>
