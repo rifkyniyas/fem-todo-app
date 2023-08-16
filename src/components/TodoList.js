@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { clearCompletedTodos, reorderTodos } from "../redux/TodoSlice";
+// import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { clearCompletedTodos } from "../redux/TodoSlice";
 import Todo from "./Todo";
 import ToggleTodo from "./ToggleTodo";
 
@@ -18,23 +20,13 @@ const getActiveTodoCount = (state) => {
 };
 
 const TodoList = () => {
-  const todos = useSelector(selectFilteredTodos);
+  const filteredTodos = useSelector(selectFilteredTodos);
   const activeTodosCount = useSelector(getActiveTodoCount);
   const dispatch = useDispatch();
-  const handleDragEnd = (result) => {
-    if (!result.destination) return;
-    // Dispatch an action to update the state with the reordered todos
-    dispatch(
-      reorderTodos({
-        sourceIndex: result.source.index,
-        destinationIndex: result.destination.index,
-      })
-    );
-  };
   return (
     <>
-      <div className="my-5 shadow-lg rounded-lg bg-white dark:bg-dark-vdd-blue">
-        <DragDropContext onDragEnd={handleDragEnd}>
+      <div className="my-5 shadow-lg rounded-lg bg-white dark:bg-dark-vdd-blue ">
+        {/* <DragDropContext onDragEnd={handleDragEnd}>
           <Droppable droppableId="todo-list">
             {(provided) => (
               <ul {...provided.droppableProps} ref={provided.innerRef}>
@@ -59,9 +51,21 @@ const TodoList = () => {
               </ul>
             )}
           </Droppable>
-        </DragDropContext>
+        </DragDropContext> */}
+        <DndProvider backend={HTML5Backend}>
+          {filteredTodos.map((todo, index) => (
+            <Todo
+              key={todo.id}
+              todoID={todo.id}
+              todoIndex={index}
+              text={todo.text}
+              isCompleted={todo.isCompleted}
+            />
+          ))}
+        </DndProvider>
+
         <div
-          className="flex justify-between px-6 lg:px-3 py-6 lg:text-sm
+          className="flex justify-between px-6 lg:px-3 py-6 text-base lg:text-sm
         text-light-d-g-blue dark:text-dark-dg-blue"
         >
           <p>{activeTodosCount} items left</p>
