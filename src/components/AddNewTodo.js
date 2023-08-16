@@ -12,6 +12,7 @@ const AddNewTodo = () => {
       onSubmit={(e) => {
         e.preventDefault();
         dispatch(addTodo({ id: uuidv4(), text: newTodo, isCompleted: false }));
+        setNewTodo("");
       }}
     >
       <input
