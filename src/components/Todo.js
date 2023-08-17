@@ -52,11 +52,13 @@ const Todo = ({ todoID, todoIndex, text, isCompleted }) => {
       style={{ opacity: isDragging ? 0.5 : 1, cursor: "grab" }}
     >
       <button
-        className={`shrink-0 flex justify-center items-center relative
-        ${isCompleted ? "bg-check-back" : ""} 
-        relative w-6 h-6 rounded-full border 
-        border-light-vl-g-blue dark:border-dark-dg-blue`}
-        // border-light-vl-g-blue
+        className={`${
+          isCompleted
+            ? "bg-gradient-to-br from-gradient-from to-gradient-to"
+            : ""
+        }
+        shrink-0 flex justify-center items-center relative w-6 h-6 rounded-full
+        border border-light-vl-g-blue dark:border-dark-dg-blue hover:border-gradient-from`}
         onClick={() => dispatch(toggleCompletion(todoID))}
       >
         {isCompleted && (
