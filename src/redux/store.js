@@ -1,23 +1,47 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import todoReducer from "./TodoSlice";
 import themeReducer from "./ThemeSlice";
+import { persistStore, persistReducer } from "redux-persist";
+import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
-const persistedState = JSON.parse(localStorage.getItem("app-state"));
-const initialState = {};
-
-const localStorageMiddleware = (store) => (next) => (action) => {
-  const result = next(action);
-  console.log(store.getState());
-  localStorage.setItem("app-state", JSON.stringify(store.getState()));
-  return result;
+const createNoopStorage = () => {
+  return {
+    getItem(_key) {
+      return Promise.resolve(null);
+    },
+    setItem(_key, value) {
+      return Promise.resolve(value);
+    },
+    removeItem(_key) {
+      return Promise.resolve();
+    },
+  };
 };
 
-export const store = configureStore({
-  reducer: {
-    todos: todoReducer,
-    theme: themeReducer,
-  },
-  preloadedState: persistedState || initialState,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(localStorageMiddleware),
+const storage =
+  typeof window !== "undefined"
+    ? createWebStorage("local")
+    : createNoopStorage();
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const rootReducer = combineReducers({
+  todos: todoReducer,
+  theme: themeReducer,
 });
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+});
+
+export const persistor = persistStore(store);
+
+export default store;
